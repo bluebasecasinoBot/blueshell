@@ -1,0 +1,262 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition:all linear .5s;
+}
+
+body
+{
+    height:100vh;
+    width:100vw;
+}
+
+@font-face {
+    font-family: title;
+    src: url(./assets/Quantico-Bold.ttf);
+}
+
+@font-face {
+    font-family: normFont;
+    src: url(./assets/RussoOne-Regular.ttf);
+}
+
+.blueShell
+{
+    height:200px;
+    width:200px;
+    background-image: url(./assets/blueshell.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: float 6s ease-in-out infinite;
+}
+
+.metallicHolder_left1
+{
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(145deg, #d4d4d4, #8e8e8e);
+    border: 3px solid #c0c0c0;
+    border-radius: 12px;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+    box-shadow:
+      inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+      inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* 4px 4px 8px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.metallicHolder_right1
+{
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(145deg, #d4d4d4, #8e8e8e);
+    border: 3px solid #c0c0c0;
+    border-radius: 12px;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    box-shadow:
+      inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+      inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* 4px 4px 8px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.metallicRod {
+    background: linear-gradient(180deg, #c0c0c0, #7f7f7f);
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow:
+      inset -1px -1px 2px rgba(255, 255, 255, 0.7),
+      inset 1px 1px 2px rgba(0, 0, 0, 0.3);
+      /* 2px 2px 6px rgba(0, 0, 0, 0.4); */
+  }
+
+.metallicJoint
+{
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle at 30% 30%, 
+      #e0e0e0, /* bright spot */
+      #b0b0b0 40%, 
+      #6a6a6a 70%, 
+      #404040 100%); /* darker at the edge */
+    border: 2px solid #a0a0a0;
+    border-radius: 50%;
+    box-shadow:
+      inset -4px -4px 8px rgba(255, 255, 255, 0.7), /* fake highlight */
+      inset 4px 4px 10px rgba(0, 0, 0, 0.6), /* fake shadow */
+      2px 2px 8px rgba(0, 0, 0, 0.5); /* external depth */
+}
+
+.display-panel {
+    width: 250px;
+    height: 150px;
+    background: linear-gradient(145deg, #e0e0e0, #a3a3a3);
+    border: 3px solid #c0c0c0;
+    border-radius: 12px;
+    box-shadow:
+      inset -2px -2px 5px rgba(255, 255, 255, 0.8),
+      inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+      /* 6px 6px 20px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    /* padding: 15px; */
+}
+
+.title {
+    font-family: title; /* or Russo One, Share Tech Mono */
+    color: #cccccc; /* light metallic gray */
+    /* background: linear-gradient(180deg, #cccccc 0%, #3f2b96 100%);
+    -webkit-background-clip: text; */
+    color: #4820f7;
+    text-shadow: 1px 1px 0 #004080 , 2px 2px 0 #004080 , 3px 3px 0 #004080, /* first deep dark blue shadow */
+    4px 4px 0 #00264d , 5px 5px 0 #00264d , 6px 6px 0 #00264d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.mech_button {
+    font-family: 'Quantico', sans-serif; /* strong mechanical font */
+    font-size: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(180deg, #4d5d6c 0%, #2b2f33 100%); /* dark steel gradient */
+    border: 3px solid #1c1f22; /* solid dark frame */
+    border-radius: 8px; /* slightly rounded edges, like machined parts */
+    padding: 15px;
+    box-shadow: 
+      0 6px 0 #1c1f22, /* deep 3D bottom border */
+      0 8px 10px rgba(0, 0, 0, 0.7); /* deep shadow underneath */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+}
+.mech_button:hover {
+    background: linear-gradient(180deg, #5e738a 0%, #2f3439 100%);
+    transform: translateY(2px);
+    box-shadow: 
+      0 4px 0 #1c1f22, 
+      0 6px 6px rgba(0, 0, 0, 0.6);
+}
+.mech_button:active {
+    background: linear-gradient(180deg, #2b2f33 0%, #1c1f22 100%);
+    transform: translateY(4px);
+    box-shadow: 
+      0 2px 0 #1c1f22, 
+      0 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(5px, -10px) rotate(1deg);
+    }
+    50% {
+      transform: translate(0px, -5px) rotate(0deg);
+    }
+    75% {
+      transform: translate(-5px, -10px) rotate(-1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.swing_1
+{
+    animation: swing1 1s ease-out forwards;
+}
+
+@keyframes swing1 {
+    0%   { transform:translateX(-50%) rotate(20deg); }
+    10%  { transform:translateX(-50%) rotate(-18deg); }
+    20%  { transform:translateX(-50%) rotate(14deg); }
+    30%  { transform:translateX(-50%) rotate(-12deg); }
+    40%  { transform:translateX(-50%) rotate(9deg); }
+    50%  { transform:translateX(-50%) rotate(-7deg); }
+    60%  { transform:translateX(-50%) rotate(5deg); }
+    70%  { transform:translateX(-50%) rotate(-3deg); }
+    80%  { transform:translateX(-50%) rotate(2deg); }
+    90%  { transform:translateX(-50%) rotate(-1deg); }
+    100% { transform:translateX(-50%) rotate(0deg); }
+}
+
+.swing_2
+{
+    animation: swing2 1s ease-out forwards;
+}
+
+@keyframes swing2 {
+    0%   { transform:translateX(-50%) rotate(calc(180deg + 20deg)); }
+    10%  { transform:translateX(-50%) rotate(calc(180deg - 18deg)); }
+    20%  { transform:translateX(-50%) rotate(calc(180deg + 14deg)); }
+    30%  { transform:translateX(-50%) rotate(calc(180deg - 12deg)); }
+    40%  { transform:translateX(-50%) rotate(calc(180deg + 9deg)); }
+    50%  { transform:translateX(-50%) rotate(calc(180deg - 7deg)); }
+    60%  { transform:translateX(-50%) rotate(calc(180deg + 5deg)); }
+    70%  { transform:translateX(-50%) rotate(calc(180deg - 3deg)); }
+    80%  { transform:translateX(-50%) rotate(calc(180deg + 2deg)); }
+    90%  { transform:translateX(-50%) rotate(calc(180deg - 1deg)); }
+    100% { transform:translateX(-50%) rotate(calc(180deg + 0deg)); }
+}
+
+.swing_3
+{
+    animation: swing3 1s ease-out forwards;
+}
+
+@keyframes swing3 {
+    0%   { transform:translateX(50%) rotate(20deg); }
+    10%  { transform:translateX(50%) rotate(-18deg); }
+    20%  { transform:translateX(50%) rotate(14deg); }
+    30%  { transform:translateX(50%) rotate(-12deg); }
+    40%  { transform:translateX(50%) rotate(9deg); }
+    50%  { transform:translateX(50%) rotate(-7deg); }
+    60%  { transform:translateX(50%) rotate(5deg); }
+    70%  { transform:translateX(50%) rotate(-3deg); }
+    80%  { transform:translateX(50%) rotate(2deg); }
+    90%  { transform:translateX(50%) rotate(-1deg); }
+    100% { transform:translateX(50%) rotate(0deg); }
+}
+
+.swing_4
+{
+    animation: swing4 1s ease-out forwards;
+}
+
+@keyframes swing4 {
+    0%   { transform:translateX(50%) rotate(calc(180deg + 20deg)); }
+    10%  { transform:translateX(50%) rotate(calc(180deg - 18deg)); }
+    20%  { transform:translateX(50%) rotate(calc(180deg + 14deg)); }
+    30%  { transform:translateX(50%) rotate(calc(180deg - 12deg)); }
+    40%  { transform:translateX(50%) rotate(calc(180deg + 9deg)); }
+    50%  { transform:translateX(50%) rotate(calc(180deg - 7deg)); }
+    60%  { transform:translateX(50%) rotate(calc(180deg + 5deg)); }
+    70%  { transform:translateX(50%) rotate(calc(180deg - 3deg)); }
+    80%  { transform:translateX(50%) rotate(calc(180deg + 2deg)); }
+    90%  { transform:translateX(50%) rotate(calc(180deg - 1deg)); }
+    100% { transform:translateX(50%) rotate(calc(180deg + 0deg)); }
+}
