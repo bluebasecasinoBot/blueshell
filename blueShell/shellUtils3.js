@@ -103,7 +103,7 @@ __SYD.robotRodright2__display_panel = () =>{
     return __c(
         "div",
         {
-            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(-50%);height:${__p(["robotArmright1__holder" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmright1__holder" , "stage2"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
+            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(${__p(["container" , "eSize"],false) ? "-90%" : "-50%"});height:${__p(["robotArmright1__holder" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmright1__holder" , "stage2"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
             class:"display-panel"
         },
         [

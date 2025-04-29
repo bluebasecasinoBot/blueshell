@@ -26,9 +26,9 @@ __SYD.container = () =>{
             genericStyle:["bg_cover"],
             mediaQuery:{
                 query:[
-                    {size:"<700px" , prop:{titleFont:"2rem" , displaySize:["150px" , "220px"]}}
+                    {size:"<700px" , prop:{titleFont:"2rem" , eSize:true , displaySize:["200px" , "270px"]}}
                 ],
-                defState:{titleFont:"4rem" , displaySize:["200px" , "400px"]}
+                defState:{titleFont:"4rem" , eSize:false , displaySize:["200px" , "400px"]}
             },
             createState:{
                 stateName:"container",
@@ -40,6 +40,7 @@ __SYD.container = () =>{
                     closeArmTimer:null,
                     titleFont:"4rem",
                     displaySize:["200px" , "400px"],
+                    eSize:false,
                     arms:["robotArmLeft1__holder" , "robotArmLeft1__holder_b" , "robotArmright1__holder" , "robotArmright1__holder_b"],
                     updateState:({prop , value}) =>{
                         const state = __g("container");
