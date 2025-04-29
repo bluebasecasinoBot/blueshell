@@ -103,7 +103,7 @@ __SYD.robotRodleft2__display_panel_b = () =>{
     return __c(
         "div",
         {
-            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(-50%) rotateZ(180deg);height:${__p(["robotArmLeft1__holder_b" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmLeft1__holder_b" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
+            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(-50%) rotateZ(180deg);height:${__p(["robotArmLeft1__holder_b" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmLeft1__holder_b" , "stage2"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
             class:"display-panel"
         },
         [
@@ -125,16 +125,6 @@ __SYD.robotRodleft2__display_panel_b = () =>{
                     __c("p" , {style:"font-size:12px;text-shadow:unset;text-align:center;max-height:100px;overflow: hidden; text-overflow: ellipsis;width:calc(100% - 20px);" , class:"title"},["Fueling the Shell Strike: Fair, Ruthless, and Built for the Underdogs"]),
             //     ]
             // ),
-            __c(
-                "div",
-                {
-                    style:"height:20px;width:20px;position:absolute;bottom:10px;right:10px;display:flex;justify-content:center;align-items:center;",
-                    class:"mech_button"
-                },
-                [
-                    __c("i",{style:"font-size:16px;color:#2c8ff1;",class:"fa-solid fa-maximize"})
-                ]
-            )
         ],
         {
             events:{
@@ -144,6 +134,8 @@ __SYD.robotRodleft2__display_panel_b = () =>{
                     state.panels_fullScreen = true;
                     state.robotArmIndex = 1;
                     __u("container" , {type:"a" , value:state})
+
+                    __p(["mainOverlayContents" , "updateState"])({prop:"tab" , value:1})
                 }
             }
         }

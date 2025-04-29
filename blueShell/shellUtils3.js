@@ -103,7 +103,7 @@ __SYD.robotRodright2__display_panel = () =>{
     return __c(
         "div",
         {
-            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(-50%);height:${__p(["robotArmright1__holder" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmright1__holder" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
+            style:`position:absolute;top:calc(100% - 5px);left:50%;transform:translateX(-50%);height:${__p(["robotArmright1__holder" , "stage3"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[0] : "0px"};width:${__p(["robotArmright1__holder" , "stage2"],false) ? __p(["container" , "displaySize"],["200px" , "400px"])[1] : "0px"};overflow:hidden;display:flex;flex-direction:column;gap:10px;align-items:center;`,
             class:"display-panel"
         },
         [
@@ -125,16 +125,6 @@ __SYD.robotRodright2__display_panel = () =>{
                     __c("p" , {style:"font-size:12px;text-shadow:unset;text-align:center;max-height:100px;overflow: hidden; text-overflow: ellipsis;width:calc(100% - 20px);" , class:"title"},["The Road to Total Degen Domination."]),
             //     ]
             // ),
-            __c(
-                "div",
-                {
-                    style:"height:20px;width:20px;position:absolute;bottom:10px;left:10px;display:flex;justify-content:center;align-items:center;",
-                    class:"mech_button"
-                },
-                [
-                    __c("i",{style:"font-size:16px;color:#2c8ff1;",class:"fa-solid fa-maximize"})
-                ]
-            )
         ],
         {
             events:{
@@ -144,6 +134,8 @@ __SYD.robotRodright2__display_panel = () =>{
                     state.panels_fullScreen = true;
                     state.robotArmIndex = 2;
                     __u("container" , {type:"a" , value:state})
+
+                    __p(["mainOverlayContents" , "updateState"])({prop:"tab" , value:2})
                 }
             }
         }

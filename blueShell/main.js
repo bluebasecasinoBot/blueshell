@@ -3,6 +3,7 @@ import "./shellUtils1.js"
 import "./shellUtils2.js"
 import "./shellUtils3.js"
 import "./shellUtils4.js"
+import "./mainOverlay.js"
 
 __SYD.container = () =>{
     return __c(
@@ -13,6 +14,7 @@ __SYD.container = () =>{
         [
             __SYD.floatingBlueShellCont(),
             __SYD.titleText(),
+            __SYD.frontalPage(),
             __SYD.mainOverlayContents(),
             __SYD.robotArmLeft1__holder(),
             __SYD.robotArmLeft1__holder_b(),
@@ -52,12 +54,26 @@ __SYD.container = () =>{
 
                         function render_min()
                         {
+                            // const aud = new Audio("./assets/gearSound.flac");
+                            // aud.loop = false;
                             const ind = __p(["container" , "robotArmIndex"],0);
                             const arms = __p(["container" , "arms"],["robotArmLeft1__holder" , "robotArmLeft1__holder_b" , "robotArmright1__holder" , "robotArmright1__holder_b"]);
-
+                            // aud.volume = .3
+                            // aud.play();
                             __p([arms[ind] , "animateBoard_forward"])();
+                            // setTimeout(() => {
+                            //     aud.pause();
+                            // }, 1500);
+                            
 
                             let timer2 = setTimeout(() => {
+                                // const aud2 = new Audio("./assets/gearSound.flac");
+                                // aud2.volume = .3
+                                // aud2.play();
+                                // setTimeout(() => {
+                                //     aud2.pause();
+                                // }, 1500);
+
                                 __p([arms[ind] , "animateBoard_reverse"])();
                                 clearTimeout(__p(["container" , "closeArmTimer"]));
 
@@ -76,44 +92,46 @@ __SYD.container = () =>{
     )
 }
 
-__SYD.mainOverlayContents = () =>{
+__SYD.frontalPage = () =>{
     return __c(
         "div",
         {
-            style:`height:100%;width:100%;background:rgba(0,0,0,.8);display:${__p(["container" , "panels_fullScreen"],false) ? "flex" : "none"};justify-content:center;align-items:center;position:fixed;top:0;left:0;z-index:10000;`
+            style:`height:100vh;width:100vw;position:fixed;top:0;left:0;background:rgba(0,0,0,.9);backdrop-filter:blur(2px);display:${__p(["frontalPage" , "display"],"flex")};justify-content:center;align-items:center;z-index:9000;`
         },
         [
             __c(
                 "div",
                 {
-                    style:`height:90%;width:90%;max-height:1000px;max-width:1000px;position:relative;`,
-                    class:"display-panel"
+                    style:"color:#fff;font-family:title;",
+                    class:"mech_button"
                 },
                 [
-                    __c(
-                        "div",
-                        {
-                            style:"height:20px;width:20px;position:absolute;top:10px;right:10px;display:flex;justify-content:center;align-items:center;",
-                            class:"mech_button"
-                        },
-                        [
-                            __c("i",{style:"font-size:16px;color:#2c8ff1;",class:"fa-solid fa-xmark"})
-                        ],
-                        {
-                            events:{
-                                onclick: () =>{
-                                    const state = __g("container");
-                                    state.panels_fullScreen = false;
-                                    __u("container" , {type:"a" , value:state});
+                    "Enter"
+                ],
+                {
+                    events:{
+                        onclick: e =>{
+                            const state = __g("frontalPage");
+                            state.display = "none";
+                            __u("frontalPage" , {type:"a" , value:state});
 
-                                    __p(["container" , "renderArmFunc"])()
-                                }
-                            }
+                            const aud = new Audio("./assets/mainSound.m4a");
+                            aud.loop = true;
+                            aud.volume = .2;
+                            aud.play();
                         }
-                    )
-                ]
+                    }
+                }
             )
-        ]
+        ],
+        {
+            createState:{
+                stateName:"frontalPage",
+                state:{
+                    display:"flex"
+                }
+            }
+        }
     )
 }
 
@@ -134,16 +152,39 @@ __SYD.floatingBlueShellCont = () =>{
     return __c(
         "div",
         {
-            style:"position:absolute;top:60%;left:50%;transform:translateX(-50%);width:100%;height:fit-content;display:flex;justify-content:center;align-items:center;"
+            style:"position:absolute;top:60%;left:50%;transform:translateX(-50%);width:100%;height:fit-content;display:flex;justify-content:center;align-items:center;",
+            class:`${__p(["floatingBlueShellCont" , "animationClass"],"")}`
         },
         [
             __c(
                 "div",
                 {
+                    style:`background-image:url(./assets/${__p(["floatingBlueShellCont" , "animationClass"],"") === "animateBall" ? "blueshell2.png" : "blueshell.png"});`,
                     class:"blueShell"
                 }
             )
-        ]
+        ],
+        {
+            createState:{
+                stateName:"floatingBlueShellCont",
+                state:{
+                    animationClass:""
+                }
+            },
+            events:{
+                onclick:e =>{
+                    const state = __g("floatingBlueShellCont");
+                    state.animationClass = "animateBall";
+                    __u("floatingBlueShellCont" , {type:"a" , value:state});
+
+                    let timer = setTimeout(() => {
+                        const state = __g("floatingBlueShellCont");
+                        state.animationClass = "";
+                        __u("floatingBlueShellCont" , {type:"a" , value:state});
+                    }, 3000);
+                }
+            }
+        }
     )
 }
 
@@ -151,10 +192,10 @@ __m(__SYD.container() , () =>{
     manage_mediaQuery(window.innerWidth);
 
     // // let timer = setTimeout(() => {
-    //     __p(["robotArmLeft1__holder" , "animateBoard_forward"])();
-    //     __p(["robotArmLeft1__holder_b" , "animateBoard_forward"])();
-    //     __p(["robotArmright1__holder" , "animateBoard_forward"])();
-    //     __p(["robotArmright1__holder_b" , "animateBoard_forward"])();
+        // __p(["robotArmLeft1__holder" , "animateBoard_forward"])();
+        // __p(["robotArmLeft1__holder_b" , "animateBoard_forward"])();
+        // __p(["robotArmright1__holder" , "animateBoard_forward"])();
+        // __p(["robotArmright1__holder_b" , "animateBoard_forward"])();
 
 
     //     // let timer2 = setTimeout(() => {

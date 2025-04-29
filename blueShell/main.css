@@ -12,6 +12,28 @@ body
     width:100vw;
 }
 
+.display-panel::-webkit-scrollbar
+{
+    width: 3px;
+    height: 80%;
+	background-color: transparent;
+    /* list-style-type:armenian; */
+}
+.display-panel::-webkit-scrollbar-track
+{
+    background:transparent;
+}
+.display-panel::-webkit-scrollbar-thumb
+{
+    width: 5px;
+	border-radius: 20px;
+    display:unset;
+    background: #004080;
+}
+.display-panel::-webkit-scrollbar:hover ::-webkit-scrollbar-thumb{
+    width: 3px;
+}
+
 @font-face {
     font-family: title;
     src: url(./assets/Quantico-Bold.ttf);
@@ -120,6 +142,7 @@ body
     color: #333;
     font-weight: bold;
     text-align: center;
+    cursor: pointer;
     /* padding: 15px; */
 }
 
@@ -128,12 +151,21 @@ body
     color: #cccccc; /* light metallic gray */
     /* background: linear-gradient(180deg, #cccccc 0%, #3f2b96 100%);
     -webkit-background-clip: text; */
-    color: #4820f7;
-    text-shadow: 1px 1px 0 #004080 , 2px 2px 0 #004080 , 3px 3px 0 #004080, /* first deep dark blue shadow */
-    4px 4px 0 #00264d , 5px 5px 0 #00264d , 6px 6px 0 #00264d;
+    color: #5633f5;
+    text-shadow: 1px 1px 0 #023569 , 2px 2px 0 #023569 , 3px 3px 0 #023569, /* first deep dark blue shadow */
+    4px 4px 0 #023569 , 5px 5px 0 #023569 , 6px 6px 0 #023569;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 900;
+}
+
+.norm_text {
+    font-family: title; /* or Russo One, Share Tech Mono */
+    /* background: linear-gradient(180deg, #cccccc 0%, #3f2b96 100%);
+    -webkit-background-clip: text; */
+    color: #4820f7;
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 .mech_button {
@@ -167,6 +199,15 @@ body
       0 3px 3px rgba(0, 0, 0, 0.5);
 }
 
+.drop_down_height
+{
+    animation: drop_down_height linear .3s forwards;
+}
+
+@keyframes drop_down_height {
+    0%{height: 0%;}
+    100%{height:90%}
+}
 @keyframes float {
     0% {
       transform: translate(0, 0) rotate(0deg);
@@ -260,3 +301,24 @@ body
     90%  { transform:translateX(50%) rotate(calc(180deg - 1deg)); }
     100% { transform:translateX(50%) rotate(calc(180deg + 0deg)); }
 }
+
+.animateBall
+{
+    animation: diminishingBounce 3s ease-in-out forwards;
+}
+
+@keyframes diminishingBounce {
+    0%   { transform:translateX(-50%) translateY(0); }
+    20%  { transform:translateX(-50%) translateY(-300px); }
+    30%  { transform:translateX(-50%) translateY(0); }
+    45%  { transform:translateX(-50%) translateY(-150px); }
+    55%  { transform:translateX(-50%) translateY(0); }
+    65%  { transform:translateX(-50%) translateY(-80px); }
+    73%  { transform:translateX(-50%) translateY(0); }
+    80%  { transform:translateX(-50%) translateY(-40px); }
+    86%  { transform:translateX(-50%) translateY(0); }
+    91%  { transform:translateX(-50%) translateY(-20px); }
+    95%  { transform:translateX(-50%) translateY(0); }
+    98%  { transform:translateX(-50%) translateY(-8px); }
+    100% { transform:translateX(-50%) translateY(0); }
+  }
